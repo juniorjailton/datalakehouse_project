@@ -1,0 +1,26 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# --- Databricks / Spark ---
+# Ignora arquivos de log e exportações temporárias
+*.log
+*.sh
+.databricks/
+.bundle/
+
+# --- IDEs (VS Code / PyCharm) ---
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# --- Segurança ---
+.env
+secrets.json
+*.pem
+*.key
