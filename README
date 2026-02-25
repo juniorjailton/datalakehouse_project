@@ -1,1 +1,74 @@
-Teste
+## Data Lake da Bikes & Bikes - Ingestão e Processamento de Transações em perídos de 24 horas.`
+
+## 1. Arquitetura de Dados
+
+O modelo escolhido foi o Medallion Architecture, pois é o mais apropriado para a ferramenta usada, dando mais flexibilidade e agilidade na construção e manutenção.
+
+* ** Bronze:** Dados brutos, como chegam da origem (CSV).
+* ** Silver:** Dados limpos, filtrados, normalizados e com tipos corrigidos.
+* ** Gold:** Dados agregados e prontos para o negócio (Power BI, Dashboards).
+
+> colocar diagrama
+
+## 3. Stack Tecnológica
+
+As ferramentas utilizadas nessa arquitetura foram:
+
+* **Linguagem:** Python 3.10+ e SQL
+* **Processamento:** PySpark 
+* **Orquestração:** Airflow / Prefect / Mage
+* **Storage:** Volumes (DataBricks)
+* **Formato de arquivo:** CSV (no Lake) / Delta Tables (nos níveis do medalhão)
+
+## 4. Estrutura do Repositório
+
+
+```
+├── datasetes/             # dados utilizados no projeto
+├── scripts/               # pasta com todos os scripts do pipeline
+├──   /bornze layer/       # pasta com os scriptis da camada bronze
+├──   /silver layer/       # pasta com os scriptis da camada silver
+├──   /gold layer/         # pasta com os scriptis da camada gold
+
+```
+
+## 5. Como Rodar o Projeto (Setup)
+
+Instruções passo a passo:
+
+1. **Clonar o repositório.**
+2. **Configurar variáveis de ambiente** (crie um arquivo `.env.example`).
+3. **Instalação de dependências:** `pip install -r requirements.txt`.
+4. **Execução:** Como rodar a ingestão ou o processamento principal.
+
+## 6. Qualidade e Testes
+
+Mencione como garantir que os dados estão corretos:
+
+* **Pytest:** Como rodar os testes (`pytest tests/`).
+* **Great Expectations / Pandera:** Se você usa ferramentas de validação de schema.
+
+## 7. Dicionário de Dados (ou link para ele)
+
+Se o projeto for pequeno, liste as colunas principais. Se for grande, aponte para onde essa documentação reside (Data Catalog).
+
+---
+
+### Exemplo de um Trecho Visual (Markdown):
+
+```markdown
+## 🛠️ Tecnologias
+- **Python**: Processamento principal.
+- **Delta Lake**: Para garantir transações ACID no S3.
+- **Pytest**: Validação das transformações de limpeza.
+
+## 🚀 Como testar
+Para rodar a suíte de testes de integridade de dados:
+```bash
+pytest tests/test_transformations.py
+
+```
+
+---
+
+**Você gostaria que eu gerasse um template completo em Markdown para você apenas copiar e preencher os espaços em branco?**
